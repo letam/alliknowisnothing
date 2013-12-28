@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}{% load staticfiles %}
+
+{% block css %}{{ block.super }}
+	<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}" />
+{% endblock css %}
+
+{% block top %}
+
+{% endblock top %}
+
+{% block content %}
+This is the blog!
+{% endblock content %}
+
+{% block bottom %}
+
+{% endblock bottom %}
+
+
+{% block js %}{{ block.super }}
+<script src="{% static 'blog/js/blog.js' %}"></script>
+{% endblock js %}
