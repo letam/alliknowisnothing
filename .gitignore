@@ -4,6 +4,7 @@
 *.swp
 *.pyc
 
+logs/
 confidential.py
 development_settings.py
 production_settings.py
