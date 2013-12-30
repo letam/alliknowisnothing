@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'post_office',
+
     'blog',
 )
 
@@ -133,6 +135,12 @@ LOGGING = {
             'propagate': False,
         },
     }
+}
+
+
+EMAIL_BACKEND = 'post_office.EmailBackend'
+POST_OFFICE = {
+    'BATCH_SIZE': 50
 }
 
 
