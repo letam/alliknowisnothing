@@ -5,7 +5,7 @@
 *.pyc
 
 confidential.py
-dev_local_settings.py
+development_settings.py
 production_settings.py
 static_deploy/
 

@@ -95,6 +95,9 @@ INTERNAL_IPS = (
 )
 
 from confidential import SECRET_KEY
+
+if os.path.isfile('alliknowisnothing/development_settings.py'):
+    from alliknowisnothing.development_settings import *
+
 if os.path.isfile('alliknowisnothing/production_settings.py'):
     from alliknowisnothing.production_settings import *
-
