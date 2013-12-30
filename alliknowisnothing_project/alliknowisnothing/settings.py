@@ -19,11 +19,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', '.alliknowisnothing.com']
 
 
 # Application definition
@@ -95,3 +95,6 @@ INTERNAL_IPS = (
 )
 
 from confidential import SECRET_KEY
+if os.path.isfile('alliknowisnothing/production_settings.py'):
+    from alliknowisnothing.production_settings import *
+
