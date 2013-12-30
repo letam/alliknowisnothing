@@ -1,0 +1,5 @@
+ConcurrentLogHandler==0.9.1
+Django==1.6.1
+argparse==1.2.1
+gunicorn==18.0
+wsgiref==0.1.2
