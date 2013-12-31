@@ -154,6 +154,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static_dev'),
 )
 
+BLOG_ENTRIES_DIR = os.path.join(BASE_DIR, 'blog_entries')
+BLOG_ENTRIES_URL = '/blog_entries/'
+
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 
@@ -168,3 +171,4 @@ if os.path.isfile('alliknowisnothing/development_settings.py'):
 
 if os.path.isfile('alliknowisnothing/production_settings.py'):
     from alliknowisnothing.production_settings import *
+
