@@ -20,7 +20,11 @@
 {% if entry %}
 	<h1 id="title">{{ entry.title|safe }}</h1>
 	<div id="date">{{ entry.date|safe }}</div>
+	<br/>
 	<div id="content">{{ entry.content|safe }}</div>
+	<br/>
+	{% if entry.previous %}<div><a href="/blog/{{ entry.previous }}/"><i>Previous</i></a></div>{% endif %}
+	{% if entry.next %}<div><a href="/blog/{{ entry.next }}/"><i>Next</i></a></div>{% endif %}
 {% else %}
 	{% block message_no_entry %}
 	<p>The blog is currently under construction. Come back in a few days!</p>

@@ -20,6 +20,27 @@ def get_entry_names_with_file_names():
     return entry_data
 
 
+def get_entry_names_with_file_names_and_order():
+    entries = get_entry_file_names(reverse=True)
+
+    entry_data = {}
+    count = 0
+    entry_name = ''
+    preceeding_entry = ''
+    succeeding_entry = ''
+
+    for entry in entries:
+        succeeding_entry = entry_name
+        entry_name = entry[11:-5].lower()
+        entry_data[entry_name] = { 'file_name': entry, 'rank': count, 'next': '', 'previous': ''  }
+        count += 1
+        if succeeding_entry:
+            entry_data[entry_name]['next'] = succeeding_entry
+            entry_data[succeeding_entry]['previous'] = entry_name
+
+    return entry_data
+
+
 
 ## for HTML Views ##
 
@@ -46,17 +67,23 @@ def get_entry_contents(entry=''):
         If the entry requested is not found, return an empty dict.
     '''
     contents = {}
+
+    entries = get_entry_names_with_file_names_and_order()
+    entry_data = {}
+
     if entry:
         entry = entry.lower()
-        entries = get_entry_names_with_file_names()
         if entry in entries:
-            file_name = entries[entry]
-            contents = read_entry_file(file_name)
+            entry_data = entries[entry]
     else:
-        entries = get_entry_file_names(reverse=True)
         if entries:
-            file_name = entries[0]
-            contents = read_entry_file(file_name)
+            entry_data = entries[0]
+
+    if entry_data:
+        file_name = entry_data['file_name']
+        contents = read_entry_file(file_name)
+        contents['previous'] = entry_data['previous']
+        contents['next'] = entry_data['next']
 
     return contents
 
