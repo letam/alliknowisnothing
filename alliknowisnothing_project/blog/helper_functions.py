@@ -56,7 +56,7 @@ def get_entry_contents(entry=''):
         entries = get_entry_file_names(reverse=True)
         if entries:
             file_name = entries[0]
-        contents = read_entry_file(file_name)
+            contents = read_entry_file(file_name)
 
     return contents
 
