@@ -10,3 +10,4 @@ development_settings.py
 production_settings.py
 static_deploy/
 
+alliknowisnothing_project/static_dev/blog_entries

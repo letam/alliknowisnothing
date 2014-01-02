@@ -6,11 +6,16 @@ urlpatterns = patterns('',
 
     url(r'^$', 'blog.views.home'),
     url(r'^archive/$', 'blog.views.archive'),
-    url(r'^test/$', 'blog.views.test'),
-    url(r'^broken/$', 'blog.views.broken'),
+    url(r'^TEST_test/$', 'blog.views.test_test'),
+    url(r'^TEST_broken/$', 'blog.views.test_broken'),
 
-    url (r'^entry/(?P<entry>[\w-]+)/$', 'blog.views.get_entry_url'),
-    url (r'^entry/$', 'blog.views.get_entry_url'),
+    url(r'^(?P<name>[\w-]+)/$', 'blog.views.entry'),
+
+
+    ## API ##
+    url(r'^api/archive/$', 'blog.views.archive_list'),
+    url(r'^api/entry_url/(?P<name>[\w-]+)/$', 'blog.views.entry_url'),
+    url(r'^api/entry_url/$', 'blog.views.entry_url'),
 
 
 )

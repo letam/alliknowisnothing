@@ -1,0 +1,14 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+	<h1>Blog Archive</h1>
+{% if entries %}
+<ol>
+{% for entry in entries %}
+	<li><a href="{{ entry.url }}">{{ entry.date }} - {{ entry.name }}</a></li>
+{% endfor %}
+</ol>
+{% else %}
+	<p>The blog is currently under construction. Come back in a few days!</p>
+{% endif %}
+{% endblock content %}

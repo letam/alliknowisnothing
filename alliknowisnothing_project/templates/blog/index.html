@@ -1,15 +1,32 @@
 {% extends 'layouts/base.html' %}{% load staticfiles %}
 
+{% block html_tag_attrs %}{% endblock %}
+
 {% block css %}{{ block.super }}
 	<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}" />
 {% endblock css %}
 
-{% block top %}
+{% block body_tag_attrs %}{% endblock %}
 
+{% block top %}
+	<div>
+		<a href="/">...</a> |
+		<a href="/blog/">Blog</a> |
+		<a href="/blog/archive/">Archive</a>
+	</div>
 {% endblock top %}
 
 {% block content %}
-This is the blog!
+{% if entry %}
+	<h1 id="title">{{ entry.title|safe }}</h1>
+	<div id="date">{{ entry.date|safe }}</div>
+	<div id="content">{{ entry.content|safe }}</div>
+{% else %}
+	{% block message_no_entry %}
+	<p>The blog is currently under construction. Come back in a few days!</p>
+	{% endblock message_no_entry %}
+{% endif %}
+
 {% endblock content %}
 
 {% block bottom %}
