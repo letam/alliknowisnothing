@@ -11,6 +11,8 @@ def get_entry_file_names(reverse=False):
     file_list = os.listdir(entries_dir)
     if reverse:
         file_list.sort(reverse=True)
+    else:
+        file_list.sort()
     return file_list
 
 
@@ -21,7 +23,7 @@ def get_entry_names_with_file_names():
 
 
 def get_entry_names_with_file_names_and_order():
-    entries = get_entry_file_names(reverse=True)
+    entries = get_entry_file_names()
 
     entry_data = {}
     count = 0
@@ -30,13 +32,16 @@ def get_entry_names_with_file_names_and_order():
     succeeding_entry = ''
 
     for entry in entries:
-        succeeding_entry = entry_name
+        preceeding_entry = entry_name
         entry_name = entry[11:-5].lower()
         entry_data[entry_name] = { 'file_name': entry, 'rank': count, 'next': '', 'previous': ''  }
         count += 1
-        if succeeding_entry:
-            entry_data[entry_name]['next'] = succeeding_entry
-            entry_data[succeeding_entry]['previous'] = entry_name
+        if preceeding_entry:
+            entry_data[entry_name]['previous'] = preceeding_entry
+            entry_data[preceeding_entry]['next'] = entry_name
+
+    if entries:
+        entry_data['LATEST'] = entry_name
 
     return entry_data
 
@@ -77,7 +82,7 @@ def get_entry_contents(entry=''):
             entry_data = entries[entry]
     else:
         if entries:
-            entry_data = entries[0]
+            entry_data = entries[entries['LATEST']]
 
     if entry_data:
         file_name = entry_data['file_name']
