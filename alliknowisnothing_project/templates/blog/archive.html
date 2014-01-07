@@ -1,6 +1,7 @@
 {% extends 'blog/index.html' %}
 
 {% block content %}
+<div class="container">
 	<h1>Blog Archive</h1>
 {% if entries %}
 <ol>
@@ -11,4 +12,5 @@
 {% else %}
 	<p>The blog is currently under construction. Come back in a few days!</p>
 {% endif %}
+</div>
 {% endblock content %}

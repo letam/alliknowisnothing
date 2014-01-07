@@ -9,15 +9,18 @@
 {% block body_tag_attrs %}{% endblock %}
 
 {% block top %}
+<div class="container">
 	<div>
 		<a href="/">...</a> |
 		<a href="/blog/">Blog</a> |
 		<a href="/blog/archive/">Archive</a>
 	</div>
+</div>
 {% endblock top %}
 
 {% block content %}
 {% if entry %}
+<div class="container">
 	<h1 id="title">{{ entry.title|safe }}</h1>
 	<div id="date">{{ entry.date|safe }}</div>
 	<br/>
@@ -30,11 +33,14 @@
 	<p>The blog is currently under construction. Come back in a few days!</p>
 	{% endblock message_no_entry %}
 {% endif %}
+</div>
 
 {% endblock content %}
 
 {% block bottom %}
+<div class="container">
 
+</div>
 {% endblock bottom %}
 
 
