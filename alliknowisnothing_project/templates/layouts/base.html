@@ -9,7 +9,7 @@
 {% if debug %}
 	<link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.css' %}" />
 {% else %}
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
 {% endif %}
 {% endblock css %}
 {% block head_extend %}{% endblock %}
@@ -24,11 +24,11 @@
 
 {% block js %}
 {% if debug %}
-<script src="{% static 'lib/js/jquery-1.10.2.js' %}"></script>
+<script src="{% static 'lib/js/jquery-1.11.0.js' %}"></script>
 <script src="{% static 'lib/bootstrap/js/bootstrap.js' %}"></script>
 {% else %}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 {% endif %}
 {% endblock js %}
 </body>
